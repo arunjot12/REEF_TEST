@@ -1,0 +1,50 @@
+[package]
+name = "module-poc"
+version = "1.0.0"
+authors = ["Reef Developers"]
+description = "Proof of Commitment module"
+edition = "2021"
+
+[dependencies]
+codec = { package = "parity-scale-codec", version = "3.0.0", default-features = false, features = [
+	"derive",
+	"max-encoded-len",
+] }
+serde = { version = "1.0.145", optional = true }
+sp-std = { workspace = true, default-features = false }
+scale-info = { version = "2.2.0", default-features = false, features = [
+	"derive",
+] }
+sp-runtime = { workspace = true, default-features = false }
+frame-support = { workspace = true, default-features = false }
+frame-system = { workspace = true, default-features = false }
+frame-benchmarking = { workspace = true, default-features = false, optional = true }
+pallet-collective = { workspace = true, default-features = false }
+primitives = { package = "reef-primitives", path = "../../primitives", default-features = false }
+sp-io = { workspace = true, default-features = false }
+
+[dev-dependencies]
+pallet-balances = { workspace = true, default-features = false }
+
+[features]
+default = ["std"]
+std = [
+	"serde",
+	"codec/std",
+	"sp-std/std",
+	"sp-runtime/std",
+	"frame-support/std",
+	"scale-info/std",
+	"pallet-collective/std",
+	"primitives/std",
+	"frame-benchmarking/std",
+	"frame-system/std",
+	"pallet-balances/std",
+	"sp-io/std",
+]
+runtime-benchmarks = [
+	"frame-benchmarking",
+	"frame-support/runtime-benchmarks",
+	"frame-system/runtime-benchmarks",
+	"pallet-collective/runtime-benchmarks",
+]

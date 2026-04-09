@@ -1,0 +1,28 @@
+[package]
+name = "module-example"
+version = "0.7.3"
+authors = ["Reef Developers"]
+edition = "2021"
+
+[dependencies]
+serde = { version = "1.0.101", optional = true }
+codec = { package = "parity-scale-codec", version = "3.0.0", default-features = false }
+scale-info = { version = "2.2.0", default-features = false, features = ["derive"] }
+sp-runtime = { workspace = true, default-features = false} 
+frame-support = { workspace = true, default-features = false} 
+frame-system = { workspace = true, default-features = false} 
+
+[dev-dependencies]
+sp-core = { workspace = true, default-features = false} 
+sp-io = { workspace = true, default-features = false} 
+
+[features]
+default = ["std"]
+std = [
+	"serde",
+	"codec/std",
+	"sp-runtime/std",
+	"frame-support/std",
+	"frame-system/std",
+	"scale-info/std"
+]
