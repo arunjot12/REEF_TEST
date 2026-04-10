@@ -140,12 +140,12 @@ macro_rules! define_parameters {
 				Clone,
 				PartialEq,
 				Eq,
-				$crate::parameters::parity_scale_codec::Encode,
-				$crate::parameters::parity_scale_codec::Decode,
-				$crate::parameters::parity_scale_codec::MaxEncodedLen,
+				$crate::parameters::codec::Encode,
+				$crate::parameters::codec::Decode,
+				$crate::parameters::codec::MaxEncodedLen,
 				$crate::parameters::sp_runtime::RuntimeDebug,
 				$crate::parameters::scale_info::TypeInfo,
-				$crate::parameters::parity_scale_codec::DecodeWithMemTracking
+				$crate::parameters::codec::DecodeWithMemTracking
 			)]
 			$vis enum $name {
 				$(
@@ -158,12 +158,12 @@ macro_rules! define_parameters {
 				Clone,
 				PartialEq,
 				Eq,
-				$crate::parameters::parity_scale_codec::Encode,
-				$crate::parameters::parity_scale_codec::Decode,
-				$crate::parameters::parity_scale_codec::MaxEncodedLen,
+				$crate::parameters::codec::Encode,
+				$crate::parameters::codec::Decode,
+				$crate::parameters::codec::MaxEncodedLen,
 				$crate::parameters::sp_runtime::RuntimeDebug,
 				$crate::parameters::scale_info::TypeInfo,
-				$crate::parameters::parity_scale_codec::DecodeWithMemTracking
+				$crate::parameters::codec::DecodeWithMemTracking
 			)]
 			$vis enum [<$name Key>] {
 				$(
@@ -176,12 +176,12 @@ macro_rules! define_parameters {
 				Clone,
 				PartialEq,
 				Eq,
-				$crate::parameters::parity_scale_codec::Encode,
-				$crate::parameters::parity_scale_codec::Decode,
-				$crate::parameters::parity_scale_codec::MaxEncodedLen,
+				$crate::parameters::codec::Encode,
+				$crate::parameters::codec::Decode,
+				$crate::parameters::codec::MaxEncodedLen,
 				$crate::parameters::sp_runtime::RuntimeDebug,
 				$crate::parameters::scale_info::TypeInfo,
-				$crate::parameters::parity_scale_codec::DecodeWithMemTracking
+				$crate::parameters::codec::DecodeWithMemTracking
 			)]
 			$vis enum [<$name Value>] {
 				$(
@@ -208,12 +208,12 @@ macro_rules! define_parameters {
 					Clone,
 					PartialEq,
 					Eq,
-					$crate::parameters::parity_scale_codec::Encode,
-					$crate::parameters::parity_scale_codec::Decode,
-					$crate::parameters::parity_scale_codec::MaxEncodedLen,
+					$crate::parameters::codec::Encode,
+					$crate::parameters::codec::Decode,
+					$crate::parameters::codec::MaxEncodedLen,
 					$crate::parameters::sp_runtime::RuntimeDebug,
 					$crate::parameters::scale_info::TypeInfo,
-					$crate::parameters::parity_scale_codec::DecodeWithMemTracking
+					$crate::parameters::codec::DecodeWithMemTracking
 				)]
 				$vis struct $key_name $( (pub $key_para) )?;
 
@@ -334,12 +334,12 @@ macro_rules! define_aggregrated_parameters {
 				Clone,
 				PartialEq,
 				Eq,
-				$crate::parameters::parity_scale_codec::Encode,
-				$crate::parameters::parity_scale_codec::Decode,
-				$crate::parameters::parity_scale_codec::MaxEncodedLen,
+				$crate::parameters::codec::Encode,
+				$crate::parameters::codec::Decode,
+				$crate::parameters::codec::MaxEncodedLen,
 				$crate::parameters::sp_runtime::RuntimeDebug,
 				$crate::parameters::scale_info::TypeInfo,
-				$crate::parameters::parity_scale_codec::DecodeWithMemTracking
+				$crate::parameters::codec::DecodeWithMemTracking
 			)]
 			$vis enum $name {
 				$(
@@ -352,12 +352,12 @@ macro_rules! define_aggregrated_parameters {
 				Clone,
 				PartialEq,
 				Eq,
-				$crate::parameters::parity_scale_codec::Encode,
-				$crate::parameters::parity_scale_codec::Decode,
-				$crate::parameters::parity_scale_codec::MaxEncodedLen,
+				$crate::parameters::codec::Encode,
+				$crate::parameters::codec::Decode,
+				$crate::parameters::codec::MaxEncodedLen,
 				$crate::parameters::sp_runtime::RuntimeDebug,
 				$crate::parameters::scale_info::TypeInfo,
-				$crate::parameters::parity_scale_codec::DecodeWithMemTracking
+				$crate::parameters::codec::DecodeWithMemTracking
 			)]
 			$vis enum [<$name Key>] {
 				$(
@@ -370,12 +370,12 @@ macro_rules! define_aggregrated_parameters {
 				Clone,
 				PartialEq,
 				Eq,
-				$crate::parameters::parity_scale_codec::Encode,
-				$crate::parameters::parity_scale_codec::Decode,
-				$crate::parameters::parity_scale_codec::MaxEncodedLen,
+				$crate::parameters::codec::Encode,
+				$crate::parameters::codec::Decode,
+				$crate::parameters::codec::MaxEncodedLen,
 				$crate::parameters::sp_runtime::RuntimeDebug,
 				$crate::parameters::scale_info::TypeInfo,
-				$crate::parameters::parity_scale_codec::DecodeWithMemTracking
+				$crate::parameters::codec::DecodeWithMemTracking
 			)]
 			$vis enum [<$name Value>] {
 				$(
@@ -503,7 +503,7 @@ mod tests {
 	#[test]
 	fn test_define_aggregrated_parameters_key_convert() {
 		use crate::parameters::workaround::Into2;
-		use parity_scale_codec::Encode;
+		use codec::Encode;
 
 		let key1 = pallet1::Key1;
 		let parameter_key: pallet1::ParametersKey = key1.clone().into();

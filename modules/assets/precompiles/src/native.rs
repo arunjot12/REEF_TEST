@@ -302,7 +302,7 @@ where
 pub mod tests {
     use super::*;
     use crate::alloy::hex;
-    use alloy::primitives::U256 as AU256;
+    use crate::alloy::primitives::U256 as AU256;
     use frame_support::{assert_ok, traits::Currency};
     use pallet_revive::{precompiles::TransactionLimits, ExecConfig};
     use sp_runtime::Weight;

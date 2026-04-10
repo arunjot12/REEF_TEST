@@ -23,7 +23,6 @@ primitives = { package = "reef-primitives", path = "../../primitives", default-f
 support = { package = "module-support", path = "../support", default-features = false }
 orml-traits = { path = "../../orml/traits", default-features = false }
 
-
 [dev-dependencies]
 sp-core = { workspace = true ,default-features = false }
 smallvec = "1.4.1"

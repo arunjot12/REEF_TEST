@@ -200,7 +200,8 @@ fn approval_works() {
 			RuntimeOrigin::signed(owner),
 			H160::from(asset_addr),
 			0u32.into(),
-			TransactionLimits::WeightAndDeposit {
+		
+		.::WeightAndDeposit {
 				weight_limit: Weight::MAX,
 				deposit_limit: u64::MAX,
 			},

@@ -22,6 +22,8 @@ frame-system = { workspace = true, default-features = false }
 [dev-dependencies]
 sp-io = { workspace = true, default-features = false }
 pallet-scheduler = { workspace = true, default-features = false }
+pallet-root-testing = { workspace = true, features = ["std"] }
+pallet-preimage = { workspace = true, features = ["std"] }
 
 [features]
 default = ["std"]

@@ -25,8 +25,8 @@
 #![allow(clippy::boxed_local)]
 #![allow(clippy::borrowed_box)]
 #![allow(clippy::unused_unit)]
+#![allow(clippy::useless_conversion)]
 
-use codec::MaxEncodedLen;
 use frame_support::{
 	dispatch::PostDispatchInfo,
 	dispatch::{DispatchClass, GetDispatchInfo, Pays},
@@ -37,6 +37,7 @@ use frame_support::{
 	},
 };
 use frame_system::{pallet_prelude::*, EnsureRoot, EnsureSigned};
+use codec::MaxEncodedLen;
 use scale_info::TypeInfo;
 use sp_core::defer;
 use sp_io::hashing::blake2_256;
@@ -48,10 +49,14 @@ use sp_std::prelude::*;
 
 use frame_support::traits::schedule::v3::Named as ScheduleNamed;
 
+#[cfg(feature = "runtime-benchmarks")]
+mod benchmarking;
 mod mock;
 mod tests;
 mod weights;
 
+#[cfg(feature = "runtime-benchmarks")]
+pub use benchmarking::BenchmarkHelper;
 pub use weights::WeightInfo;
 
 /// A delayed origin. Can only be dispatched via `dispatch_as` with a delay.
@@ -204,10 +209,6 @@ pub mod module {
 
 	#[pallet::config]
 	pub trait Config: frame_system::Config {
-		/// The overarching event type.
-		#[allow(deprecated)]
-		type RuntimeEvent: From<Event<Self>> + IsType<<Self as frame_system::Config>::RuntimeEvent>;
-
 		/// The outer origin type.
 		type RuntimeOrigin: From<DelayedOrigin<BlockNumberFor<Self>, <Self as Config>::PalletsOrigin>>
 			+ IsType<<Self as frame_system::Config>::RuntimeOrigin>
@@ -241,6 +242,9 @@ pub mod module {
 
 		/// Weight information for extrinsics in this module.
 		type WeightInfo: WeightInfo;
+
+		#[cfg(feature = "runtime-benchmarks")]
+		type BenchmarkHelper: BenchmarkHelper<Self::AsOriginId>;
 	}
 
 	#[pallet::error]

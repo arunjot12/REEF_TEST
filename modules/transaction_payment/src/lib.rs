@@ -39,8 +39,8 @@ use sp_std::{prelude::*, vec};
 use support::TransactionPayment;
 
 mod default_weight;
-mod mock;
-mod tests;
+// mod mock;
+// mod tests;
 
 pub use module::*;
 

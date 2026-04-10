@@ -70,6 +70,7 @@ impl pallet_revive::Config for Test {
 	type AddressMapper = pallet_revive::TestAccountMapper<Self>;
 	type Balance = u128;
 	type Currency = Balances;
+	type Issuance = Balances;
 	type Precompiles = (ERC20<Self, InlineIdConfig<0x0120>>,);
 }
 

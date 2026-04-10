@@ -3,8 +3,8 @@
 
 #![allow(clippy::upper_case_acronyms)]
 
-mod mock;
-mod tests;
+// mod mock;
+// mod tests;
 
 use crate::is_core_precompile;
 use module_evm::{

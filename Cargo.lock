@@ -8409,6 +8409,7 @@ dependencies = [
  "module-evm",
  "module-support",
  "pallet-balances 46.0.0",
+ "pallet-preimage",
  "pallet-timestamp",
  "parity-scale-codec",
  "primitive-types 0.12.2",
@@ -9133,6 +9134,8 @@ version = "0.4.1-dev"
 dependencies = [
  "frame-support",
  "frame-system",
+ "pallet-preimage",
+ "pallet-root-testing",
  "pallet-scheduler",
  "parity-scale-codec",
  "scale-info",
@@ -9179,6 +9182,7 @@ dependencies = [
  "sp-core",
  "sp-io",
  "sp-runtime",
+ "sp-staking",
  "sp-std",
 ]
 

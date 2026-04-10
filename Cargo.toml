@@ -150,6 +150,7 @@ pallet-revive-eth-rpc = { path = "modules/revive/rpc", default-features = false 
 pallet-revive-fixtures = { path = "modules/revive/fixtures", default-features = false }
 pallet-revive-proc-macro = { path = "modules/revive/proc-macro", default-features = false }
 pallet-revive-uapi = { path = "modules/revive/uapi", default-features = false }
+pallet-root-testing= { git = "https://github.com/paritytech/polkadot-sdk", branch = "stable2512", default-features = false }
 pallet-conviction-voting = { git = "https://github.com/paritytech/polkadot-sdk", branch = "stable2512", default-features = false }
 pallet-identity = { git = "https://github.com/paritytech/polkadot-sdk", default-features = false, branch = "stable2512" }
 pallet-grandpa = { git = "https://github.com/paritytech/polkadot-sdk", default-features = false, branch = "stable2512" }

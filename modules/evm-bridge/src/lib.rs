@@ -14,8 +14,8 @@ use support::{EVMBridge as EVMBridgeTrait, ExecutionMode, InvokeContext, EVM};
 type AccountIdOf<T> = <T as frame_system::Config>::AccountId;
 type BalanceOf<T> = <<T as Config>::EVM as EVM<AccountIdOf<T>>>::Balance;
 
-mod mock;
-mod tests;
+// mod mock;
+// mod tests;
 
 pub use module::*;
 

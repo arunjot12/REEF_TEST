@@ -29,6 +29,8 @@ hex-literal = { version = "0.3.1" }
 [dev-dependencies]
 pallet-balances = { workspace = true, default-features = false} 
 pallet-timestamp = { workspace = true, default-features = false} 
+pallet-preimage = { workspace = true, features = ["std"] }
+sp-io = { workspace = true, features = ["std"] }
 
 [features]
 default = ["std"]

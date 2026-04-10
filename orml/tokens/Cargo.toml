@@ -24,6 +24,7 @@ sp-io = { workspace = true ,default-features = false }
 sp-core = { workspace = true ,default-features = false }
 pallet-treasury = { workspace = true ,default-features = false }
 pallet-elections-phragmen = { workspace = true ,default-features = false }
+sp-staking = { workspace = true, features = ["std"] }
 
 [features]
 default = ["std"]

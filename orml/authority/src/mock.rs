@@ -5,7 +5,7 @@
 use super::*;
 use frame_support::{derive_impl, parameter_types, traits::EqualPrivilegeOnly, weights::Weight};
 use frame_system::{ensure_root, ensure_signed, EnsureRoot};
-use parity_scale_codec::{Decode, Encode};
+use codec::{Decode, Encode};
 use sp_runtime::{
 	traits::{BadOrigin, IdentityLookup},
 	BuildStorage, Perbill,
