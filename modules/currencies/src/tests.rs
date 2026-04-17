@@ -10,7 +10,7 @@ use mock::{
     NATIVE_CURRENCY_ID, X_TOKEN_ID,
 };
 use sp_core::H160;
-use sp_runtime::{traits::BadOrigin, MultiAddress};
+use sp_runtime::traits::BadOrigin;
 use support::EVM as EVMTrait;
 
 #[test]

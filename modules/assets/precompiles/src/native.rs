@@ -226,7 +226,7 @@ where
         Ok(IERC20::allowanceCall::abi_encode_returns(&value))
     }
 
-    /// `approve(address spender, uint256 value)` — sets allowance for `spender`.
+    /// `approve(address spender, uint256 /value)` — sets allowance for `spender`.
     fn approve(call: &IERC20::approveCall, env: &mut impl Ext<T = T>) -> Result<Vec<u8>, Error> {
         env.charge(frame_support::weights::Weight::from_parts(150_000, 0))?;
         let owner_addr = Self::caller_address(env)?;
@@ -303,7 +303,6 @@ pub mod tests {
     use super::*;
     use crate::alloy::hex;
     use crate::alloy::primitives::U256 as AU256;
-    use frame_support::{assert_ok, traits::Currency};
     use pallet_revive::{precompiles::TransactionLimits, ExecConfig};
     use sp_runtime::Weight;
 
@@ -314,21 +313,20 @@ pub mod tests {
         H160::from(hex::const_decode_to_array::<20>(PRECOMPILE_ADDR_HEX).unwrap())
     }
 
-    fn call_precompile<RT: pallet_revive::Config>(
+    fn call_precompile<RT: pallet_revive::Config<Balance = u128>>(
         origin_account: RT::AccountId,
         data: Vec<u8>,
     ) -> pallet_revive::ContractResult<
         pallet_revive::ExecReturnValue,
         RT::Balance,
-        pallet_revive::EventRecord<RT>,
-    > {
+    > { 
         pallet_revive::Pallet::<RT>::bare_call(
             frame_system::RawOrigin::Signed(origin_account).into(),
             precompile_h160(),
             0u32.into(),
             TransactionLimits::WeightAndDeposit {
                 weight_limit: Weight::MAX,
-                deposit_limit: u64::MAX.into(),
+                deposit_limit: u128::MAX,
             },
             data,
             ExecConfig::new_substrate_tx(),
@@ -338,7 +336,7 @@ pub mod tests {
     #[cfg(test)]
     mod with_mock {
         use super::*;
-        use crate::native_tests::mock::{new_test_ext, Balances, RuntimeOrigin, System, Test};
+        use crate::native_tests::mock::{new_test_ext, Balances, Test};
         use frame_support::traits::Currency;
 
         #[test]

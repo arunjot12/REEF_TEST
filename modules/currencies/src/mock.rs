@@ -171,8 +171,6 @@ impl Config for Runtime {
 pub type NativeCurrency = Currency<Runtime, GetNativeCurrencyId>;
 pub type AdaptedBasicCurrency = BasicCurrencyAdapter<Runtime, PalletBalances, i64, u64>;
 
-pub type SignedExtra = module_evm::SetEvmOrigin<Runtime>;
-
 type Block = frame_system::mocking::MockBlock<Runtime>;
 
 frame_support::construct_runtime!(

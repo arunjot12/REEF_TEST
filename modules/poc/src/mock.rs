@@ -2,7 +2,7 @@
 
 use crate as module_poc;
 use frame_support::{construct_runtime, derive_impl, parameter_types};
-pub use primitives::{currency::*, time::*, BlockNumber};
+pub use primitives::{time::*, BlockNumber};
 use sp_runtime::Perbill;
 
 type Balance = u64;
@@ -119,7 +119,6 @@ construct_runtime!(
 );
 
 pub type Origin = RuntimeOrigin;
-pub type Call = RuntimeCall;
 
 pub fn new_test_ext() -> sp_io::TestExternalities {
     use sp_runtime::BuildStorage;

@@ -101,6 +101,7 @@ impl pallet_assets::Config for Test {
     type ForceOrigin = frame_system::EnsureRoot<u64>;
     type StringLimit = ConstU32<32>;
     type Extra = ();
+    type ReserveData = ();
     type RemoveItemsLimit = ConstU32<10>;
     type CallbackHandle = ();
     type Currency = Balances;
@@ -149,6 +150,7 @@ pub fn new_test_ext(execute: impl FnOnce()) -> TestExternalities {
             metadata: vec![],
             accounts: vec![(1, 1, 100)],
             next_asset_id: None,
+            reserves: vec![],
         },
         system: Default::default(),
         balances: Default::default(),

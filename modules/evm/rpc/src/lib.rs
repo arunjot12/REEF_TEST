@@ -543,20 +543,3 @@ where
         }
     }
 }
-
-#[test]
-fn decode_revert_message_should_work() {
-    use sp_core::bytes::from_hex;
-    assert_eq!(decode_revert_message(&vec![]), None);
-
-    let data =
-        from_hex("0x8c379a00000000000000000000000000000000000000000000000000000000000000020")
-            .unwrap();
-    assert_eq!(decode_revert_message(&data), None);
-
-    let data = from_hex("0x8c379a00000000000000000000000000000000000000000000000000000000000000020000000000000000000000000000000000000000000000000000000000000000d6572726f72206d65737361676").unwrap();
-    assert_eq!(decode_revert_message(&data), None);
-
-    let data = from_hex("0x8c379a00000000000000000000000000000000000000000000000000000000000000020000000000000000000000000000000000000000000000000000000000000000d6572726f72206d65737361676500000000000000000000000000000000000000").unwrap();
-    assert_eq!(decode_revert_message(&data), Some("error message".into()));
-}

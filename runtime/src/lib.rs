@@ -1938,7 +1938,6 @@ impl pallet_parameters::Config for Runtime {
 }
 
 impl orml_authority::Config for Runtime {
-    type RuntimeEvent = RuntimeEvent;
     type RuntimeOrigin = RuntimeOrigin;
     type PalletsOrigin = OriginCaller;
     type RuntimeCall = RuntimeCall;

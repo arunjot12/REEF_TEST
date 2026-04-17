@@ -34,12 +34,13 @@ pub mod mock {
 	#[derive_impl(frame_system::config_preludes::TestDefaultConfig)]
 	impl frame_system::Config for Test {
 		type Block = Block;
-		type AccountData = pallet_balances::AccountData<u64>;
+		type AccountData = pallet_balances::AccountData<u128>;
 	}
 
 	#[derive_impl(pallet_balances::config_preludes::TestDefaultConfig as pallet_balances::DefaultConfig)]
 	impl pallet_balances::Config for Test {
 		type AccountStore = System;
+		type Balance = u128;
 	}
 
 	#[derive_impl(pallet_assets::config_preludes::TestDefaultConfig as pallet_assets::DefaultConfig)]
@@ -52,12 +53,11 @@ pub mod mock {
 	#[derive_impl(pallet_revive::config_preludes::TestDefaultConfig)]
 	impl pallet_revive::Config for Test {
 		type AddressMapper = pallet_revive::TestAccountMapper<Self>;
-		type Balance = u64;
+		type Balance = u128;
 		type Currency = Balances;
+		type Issuance = Balances;
 		type Precompiles = (crate::NativeERC20<Self>,);
 	}
-
-	pub use runtime::*;
 
 	pub fn new_test_ext() -> sp_io::TestExternalities {
 		let t = RuntimeGenesisConfig {

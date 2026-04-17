@@ -78,7 +78,7 @@ fn precompile_transfer_works() {
 			0u32.into(),
 			TransactionLimits::WeightAndDeposit {
 				weight_limit: Weight::MAX,
-				deposit_limit: u64::MAX,
+				deposit_limit: u128::MAX,
 			},
 			data,
 			ExecConfig::new_substrate_tx(),
@@ -119,7 +119,7 @@ fn total_supply_works() {
 			0u32.into(),
 			TransactionLimits::WeightAndDeposit {
 				weight_limit: Weight::MAX,
-				deposit_limit: u64::MAX,
+				deposit_limit: u128::MAX,
 			},
 			data,
 			ExecConfig::new_substrate_tx(),
@@ -154,7 +154,7 @@ fn balance_of_works() {
 			0u32.into(),
 			TransactionLimits::WeightAndDeposit {
 				weight_limit: Weight::MAX,
-				deposit_limit: u64::MAX,
+				deposit_limit: u128::MAX,
 			},
 			data,
 			ExecConfig::new_substrate_tx(),
@@ -201,9 +201,9 @@ fn approval_works() {
 			H160::from(asset_addr),
 			0u32.into(),
 		
-		.::WeightAndDeposit {
+		pallet_revive::TransactionLimits::WeightAndDeposit {
 				weight_limit: Weight::MAX,
-				deposit_limit: u64::MAX,
+				deposit_limit: u128::MAX,
 			},
 			data,
 			ExecConfig::new_substrate_tx(),
@@ -228,7 +228,7 @@ fn approval_works() {
 			0u32.into(),
 			TransactionLimits::WeightAndDeposit {
 				weight_limit: Weight::MAX,
-				deposit_limit: u64::MAX,
+				deposit_limit: u128::MAX,
 			},
 			data,
 			ExecConfig::new_substrate_tx(),
@@ -253,7 +253,7 @@ fn approval_works() {
 			0u32.into(),
 			TransactionLimits::WeightAndDeposit {
 				weight_limit: Weight::MAX,
-				deposit_limit: u64::MAX,
+				deposit_limit: u128::MAX,
 			},
 			data,
 			ExecConfig::new_substrate_tx(),

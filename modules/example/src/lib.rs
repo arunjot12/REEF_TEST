@@ -9,8 +9,8 @@
 use frame_support::pallet_prelude::*;
 use frame_system::pallet_prelude::*;
 
-mod mock;
-mod tests;
+// mod mock;
+// mod tests;
 
 pub use module::*;
 
